@@ -24,8 +24,8 @@ Subir todo lo elaborado a un repositorio (github, gitlab, bitbucket, etc). En el
 
 #### Prueba 3 - CI/CD
 
-Dockerizar un nginx custom con el index deseado.
-Elaborar un pipeline que buildee la nueva imagen y la actualize en la plataforma elegida. (docker-compose, swarm, kuberenetes, etc.)
+Dockerizar un nginx con el index.html default.
+Elaborar un pipeline que ante cada cambio realizado sobre el index.html buildee la nueva imagen y la actualize en la plataforma elegida. (docker-compose, swarm, kuberenetes, etc.)
 Para la creacion del CI/CD se puede utilizar cualquier plataforma (CircleCI, Gitlab, Github, Bitbucket.)
 
 **Requisitos y deseables:**
