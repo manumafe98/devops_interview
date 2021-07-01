@@ -6,11 +6,12 @@ Produzca un diagrama de red (puede utilizar lucidchart) de una aplicación web e
 
 El diseño debe soportar:
 
-Cargas variables
-Contar con HA (alta disponibilidad)
-Frontend en Js
-La aplicación consume 2 microservicios externos
-Una base de datos relacional y una no relacional
+- Cargas variables
+- Contar con HA (alta disponibilidad)
+- Frontend en Js
+- Backend con una base de datos relacional y una no relacional
+- La aplicación backend consume 2 microservicios externos
+
  
 El diagrama debe hacer un mejor uso de las soluciones distribuidas.
 
