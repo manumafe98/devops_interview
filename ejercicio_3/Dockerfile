@@ -1,2 +1,2 @@
-FROM manumafe/nginx_ej3:latest
+FROM nginx:latest
 COPY index.html /usr/share/nginx/html
