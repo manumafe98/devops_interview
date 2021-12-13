@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14.1-alpine
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data/
+    environment: 
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - ${PORT_DATABASE_DOCKER}:${PORT_DATABASE_LOCAL}
+    networks: 
+      - app-net
+  
+  backend:
+    build: ./backend
+    env_file:
+      - .env
+    ports:
+      - ${PORT_BACKEND_DOCKER}:${PORT_BACKEND_LOCAL}
+    depends_on:
+      - db
+    networks: 
+      - app-net
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - ${PORT_FRONTEND_DOCKER}:${PORT_FRONTEND_LOCAL}
+    networks:
+      - app-net
+
+volumes:
+  postgres_data:
+
+networks: 
+  app-net:

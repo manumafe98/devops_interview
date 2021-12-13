@@ -16,9 +16,9 @@ import warnings
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
+
 if not env('SECRET_KEY'):
     warnings.warn((
                       "Please define SECRET_KEY before importing {0}, as a fallback "
@@ -28,7 +28,7 @@ else:
     SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DJANGO_DEBUG", True)
+DEBUG = env("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = ['*']
 
