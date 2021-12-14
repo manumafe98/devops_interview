@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  app:
+    image: ${DOCKER_HUB_USERNAME}/nginx_ej3:latest
+    env_file:
+      - .env
+    ports:
+      - ${PORT_APP_DOCKER}:${PORT_APP_LOCAL}
