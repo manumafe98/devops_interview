@@ -1,6 +1,8 @@
+## Instrucciones para la implementacion de la aplicacion
+
 El backend de nuestra aplicacion esta construido en Django con una imagen de Python version 3.7--slim-buster y el frontend del mismo en React.js con una imagen de node:alpine.
 
-Para poder utilizar esta aplicacion localmente debemos seguir los siguientes pasos:
+# Implementar nuestra app localmente
 
 1 - Clonar desde github el repositorio (git clone https://github.com/Manumafe98/devops_interview.git) 
 
@@ -13,21 +15,11 @@ Para poder utilizar esta aplicacion localmente debemos seguir los siguientes pas
 5 - Para verificar desde nuestra maquina local podemos ejecutar un curl https://localhost:puerto o desde el navegador 
 
 
-Y para poder implementar esta aplicacion en AWS debemos seguis los siguientes pasos:
+# Implementar nuestra app en AWS
 
 1 - Dirigirnos a la consola de AWS
 
-2 - Seleccionar el servicio EC2, launch instances, elegimos la ultima version de Amazon linux, luego el storage correspondiente que necesitemos, dentro del punto Configure instance en el apartado de User data debemos colocar el siguiente script: 
-
-#!/bin/bash
-sudo yum update -y
-sudo yum install -y docker
-sudo systemctl start docker.service
-sudo usermod -a -G docker ec2-user
-sudo yum install -y git
-sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+2 - Seleccionar el servicio EC2, launch instances, elegimos la ultima version de Amazon linux, luego el storage correspondiente que necesitemos, dentro del punto Configure instance en el apartado de User data debemos colocar el script que se encuentra [aca](/devops_interview/ejercicio_2/) bajo el nombre de user-data, deberiamos copiar el contenido y pegarlo o subirlo como archivo 
 
 3 - Es importante que tengamos generado un Security Group tanto como un NACL que permita acceso desde el exterior a los puertos que coloquemos en el .env
 
