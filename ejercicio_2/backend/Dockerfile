@@ -1,15 +1,15 @@
 
-# https://pythonspeed.com/articles/base-image-python-docker-images/
 FROM python:3.7-slim-buster
 
-# mostrar stoud y stderr
 ENV PYTHONUNBUFFERED 1
 
+#Create the workdir
 WORKDIR /app
 
+#Copy the requirements to install
 COPY requirements.txt /app/
 
-# instala dependencias
+#Install the dependencies of the app
 RUN apt update && apt install -y \
     gcc \
     graphviz-dev && \
@@ -19,9 +19,10 @@ RUN apt update && apt install -y \
     graphviz-dev && \
     apt autoclean -y
 
-# copia el código
+#Copy the code to the container
 COPY . /app/
 
 EXPOSE 8000
 
+#Run the app
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
