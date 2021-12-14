@@ -16,6 +16,10 @@
 
 8 - Luego de este procedimiento deberiamos ver que en nuestro repositorio genrado en el apartado de Actions se estan realizando una serie de pasos y una vez finalizados en nuestro docker hub --> My profile en repositories deberiamos ver uno nuevo generado con username/nginx_ej3
 
-9 - Ejecutamos desde nuestro terminal un docker pull username/nginx_ej3 y luego un docker run -d -p 8080:80 username/nginx_ej3
+9 - Generamos un archivo .env en el directorio ./devops_interview/ejercicio_3 siguiendo los parametros que nos muestra el .env-template, guardamos los cambios
 
-10 - Para verificar el correcto funcionamiento deberiamos ejecutar un curl a localhost o 127.0.0.1 con el puerto 8080 ej: https://127.0.0.1:8080
+10 - Luego ejecutamos docker-copose up -d, lo cual deberia levantar nuestra app  
+
+10 - Para verificar el correcto funcionamiento deberiamos ejecutar un curl a localhost o 127.0.0.1 con el puerto seteado en nuestros parametros ej: https://127.0.0.1:8080
+
+11 - En caso de querer modificar el index.html para realizar pruebas, debemos editar el mismo, seguir los pasos del punto 7 ver que nuestra imagen se haya actualizado en nuestro docker hub y borrar las imagenes que tengamos para crear una nueva nuevamente ejecutando docker-compose up -d (docker stop $container_id; docker rm $container_id; docker image rm $image_id)
