@@ -1,8 +1,8 @@
-## Instrucciones para la implementacion de la aplicacion
+# Instrucciones para la implementacion de la aplicacion
 
 El backend de nuestra aplicacion esta construido en Django con una imagen de Python version 3.7--slim-buster y el frontend del mismo en React.js con una imagen de node:alpine.
 
-# Implementar nuestra app localmente
+## Implementar nuestra app localmente
 
 1 - Clonar desde github el repositorio (git clone https://github.com/Manumafe98/devops_interview.git) 
 
@@ -15,11 +15,11 @@ El backend de nuestra aplicacion esta construido en Django con una imagen de Pyt
 5 - Para verificar desde nuestra maquina local podemos ejecutar un curl https://localhost:puerto o desde el navegador 
 
 
-# Implementar nuestra app en AWS
+## Implementar nuestra app en AWS
 
 1 - Dirigirnos a la consola de AWS
 
-2 - Seleccionar el servicio EC2, launch instances, elegimos la ultima version de Amazon linux, luego el storage correspondiente que necesitemos, dentro del punto Configure instance en el apartado de User data debemos colocar el script que se encuentra [aca](/devops_interview/ejercicio_2/) bajo el nombre de user-data, deberiamos copiar el contenido y pegarlo o subirlo como archivo 
+2 - Seleccionar el servicio EC2, launch instances, elegimos la ultima version de Amazon linux, luego el storage correspondiente que necesitemos, dentro del punto Configure instance en el apartado de User data debemos colocar el script que se encuentra [aca](ejercicio_2/) bajo el nombre de user-data, deberiamos copiar el contenido y pegarlo o subirlo como archivo 
 
 3 - Es importante que tengamos generado un Security Group tanto como un NACL que permita acceso desde el exterior a los puertos que coloquemos en el .env
 
