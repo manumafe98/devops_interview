@@ -1,5 +1,5 @@
 # pull the base image
-FROM node:alpine
+FROM node:17-alpine3.12
 
 # set the working direction
 WORKDIR /app
@@ -16,8 +16,6 @@ RUN npm install
 
 # add app
 COPY . ./
-
-EXPOSE 3000
 
 # start app
 CMD ["npm", "start"]
