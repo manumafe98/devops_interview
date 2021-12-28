@@ -1,4 +1,4 @@
-## Instrucciones para la ejecución exitosa del proceso de CI
+## Instrucciones para la ejecución exitosa del proceso de CI/CD
 
 1 - Crear un repositorio en Github
 
@@ -12,14 +12,12 @@
 
 6 - Conectarnos remotamente con el repositorio recientemente generado (git remote add origin https://ejemplo, colocando el alias deseado en vez de origin)
 
-7 - Realizar un git init, git add . , git commit -m "mensaje deseado" y un git push origin master (Importante estar en el master branch)
+7 - Debemos generar una instancia EC2 desde la consola de AWS colocando en el user data la siguiente [informacion](/devops_interview/ejercicio_2/user-data.sh) y un security group que permita el acceso ssh y http desde cualquier red, en lo posible generar una elactic ip y asociarla tambien a la misma, asegurandonos que tenemos una llave privada para acceder al servidor y en caso contrario generarla en la creacion de la instancia
 
-8 - Luego de este procedimiento deberíamos ver que en nuestro repositorio generado en el apartado de Actions se están realizando una serie de pasos y una vez finalizados en nuestro docker hub --> My profile en repositorios deberíamos ver uno nuevo generado con username/nginx_ej3
+8 - Luego debemos agregar como secrets GH_TOKEN y GH_USERNAME con el token y user correspondiente de github, HOST con la ip correspondiente de la instancia, USER con el user que hayamos generado que seria por defecto ec2-user (recomendacion dejar el default) 
 
-9 - Generamos un archivo .env en el directorio ./devops_interview/ejercicio_3 siguiendo los parámetros que nos muestra el .env-template, guardamos los cambios
+9 - Realizamos un git init donde nos habiamos quedado parados
 
-10 - Luego ejecutamos docker-copose up -d, lo cual debería levantar nuestra app  
+10 - Modificamos el index.html para realizar la prueba, verificando estar en el master branch, realizamos un git add . y luego un git commit -m "mensaje" 
 
-10 - Para verificar el correcto funcionamiento deberíamos ejecutar un curl a localhost o 127.0.0.1 con el puerto seteado en nuestros parametros ej: https://127.0.0.1:8080
-
-11 - En caso de querer modificar el index.html para realizar pruebas, debemos editar el mismo, seguir los pasos del punto 7 ver que nuestra imagen se haya actualizado en nuestro docker hub y borrar las imágenes que tengamos para crear una nueva nuevamente ejecutando docker-compose up -d (docker stop $container_id; docker rm $container_id; docker image rm $image_id)
+11 - Deberiamos ver en neustras Actions el proceso de build y luego deploy y verificar con un sudo docker ps que el contenedor este corriendo en la instancia en caso de ser asi con un curl http://127.0.0.1:8080 podriamos ver el contenido de nuestro index.html
