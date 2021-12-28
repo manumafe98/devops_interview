@@ -12,7 +12,7 @@
 
 6 - Conectarnos remotamente con el repositorio recientemente generado (git remote add origin https://ejemplo, colocando el alias deseado en vez de origin)
 
-7 - Debemos generar una instancia EC2 desde la consola de AWS colocando en el user data la siguiente [informacion](/devops_interview/ejercicio_2/user-data.sh) y un security group que permita el acceso ssh y http desde cualquier red, en lo posible generar una elactic ip y asociarla tambien a la misma, asegurandonos que tenemos una llave privada para acceder al servidor y en caso contrario generarla en la creacion de la instancia
+7 - Debemos generar una instancia EC2 desde la consola de AWS colocando en el user data la siguiente [informacion](user-data.sh) y un security group que permita el acceso ssh y http desde cualquier red, en lo posible generar una elactic ip y asociarla tambien a la misma, asegurandonos que tenemos una llave privada para acceder al servidor y en caso contrario generarla en la creacion de la instancia
 
 8 - Luego debemos agregar como secrets GH_TOKEN y GH_USERNAME con el token y user correspondiente de github, HOST con la ip correspondiente de la instancia, USER con el user que hayamos generado que seria por defecto ec2-user (recomendacion dejar el default) 
 
@@ -20,4 +20,4 @@
 
 10 - Modificamos el index.html para realizar la prueba, verificando estar en el master branch, realizamos un git add . y luego un git commit -m "mensaje" 
 
-11 - Deberiamos ver en neustras Actions el proceso de build y luego deploy y verificar con un sudo docker ps que el contenedor este corriendo en la instancia en caso de ser asi con un curl http://127.0.0.1:8080 podriamos ver el contenido de nuestro index.html
+11 - Deberiamos ver en nuestras Actions el proceso de build y luego deploy y verificar con un sudo docker ps que el contenedor este corriendo en la instancia en caso de ser asi con un curl http://127.0.0.1:8080 podriamos ver el contenido de nuestro index.html
